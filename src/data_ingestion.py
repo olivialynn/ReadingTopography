@@ -40,7 +40,7 @@ def normalize_title(title: str) -> str:
     normalized = re.sub(r'\s+', ' ', normalized)
     
     # Remove common punctuation but keep apostrophes
-    normalized = re.sub(r'[.,;:!?"""''—–-]+', '', normalized)
+    normalized = re.sub(r'[-.,;:!?"""''—–]+', '', normalized)
     
     # Strip again to handle any trailing whitespace from punctuation removal
     normalized = normalized.strip()
@@ -73,7 +73,7 @@ def normalize_author(author: str) -> str:
     normalized = re.sub(r'\.', '', normalized)
     
     # Remove common punctuation
-    normalized = re.sub(r'[,;:!?"""''—–-]+', '', normalized)
+    normalized = re.sub(r'[-,;:!?"""''—–]+', '', normalized)
     
     # Strip leading/trailing whitespace
     normalized = normalized.strip()
