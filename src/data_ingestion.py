@@ -40,6 +40,8 @@ def normalize_title(title: str) -> str:
     normalized = re.sub(r'\s+', ' ', normalized)
     
     # Remove common punctuation but keep apostrophes
+    # Handles: hyphen(-), period(.), comma(,), semicolon(;), colon(:), 
+    # exclamation(!), question(?), various quote styles(""), em/en dashes(—–)
     normalized = re.sub(r'[-.,;:!?"""''—–]+', '', normalized)
     
     # Strip again to handle any trailing whitespace from punctuation removal
@@ -73,6 +75,8 @@ def normalize_author(author: str) -> str:
     normalized = re.sub(r'\.', '', normalized)
     
     # Remove common punctuation
+    # Handles: hyphen(-), comma(,), semicolon(;), colon(:), exclamation(!), 
+    # question(?), various quote styles(""), em/en dashes(—–)
     normalized = re.sub(r'[-,;:!?"""''—–]+', '', normalized)
     
     # Strip leading/trailing whitespace
