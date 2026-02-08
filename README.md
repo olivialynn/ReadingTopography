@@ -10,6 +10,7 @@ A notebook-first exploratory data project to visualize your reading list by diff
 - ✅ Deduplicate books based on ISBN13 or normalized identifiers
 - ✅ Filter to "to-read" shelf
 - ✅ Comprehensive test coverage
+- ✅ **Google Colab support** - Run notebooks in the cloud with zero setup
 
 ### Coming Soon
 - Metadata enrichment via Google Books and Open Library APIs
@@ -18,6 +19,14 @@ A notebook-first exploratory data project to visualize your reading list by diff
 - Local caching for API results
 
 ## Quick Start
+
+### Option 1: Run on Google Colab (No Installation Required!)
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/olivialynn/ReadingTopography/blob/main/notebooks/mvp_notebook.ipynb)
+
+Click the badge above to open and run the notebook directly in Google Colab. The environment will be set up automatically!
+
+### Option 2: Run Locally
 
 1. **Install dependencies**:
    ```bash
@@ -41,12 +50,14 @@ A notebook-first exploratory data project to visualize your reading list by diff
 
 ```
 ReadingTopography/
-├── notebooks/          # Jupyter notebooks
+├── notebooks/          # Jupyter notebooks (Colab-compatible!)
 │   └── mvp_notebook.ipynb
 ├── src/               # Python modules
-│   └── data_ingestion.py
+│   ├── data_ingestion.py
+│   └── notebook_utils.py    # Colab/local environment setup
 ├── tests/             # Unit tests
-│   └── test_data_ingestion.py
+│   ├── test_data_ingestion.py
+│   └── test_notebook_utils.py
 ├── data/              # CSV files (your Goodreads exports)
 │   └── sample_goodreads.csv
 ├── cache/             # Cached API results (created automatically)
