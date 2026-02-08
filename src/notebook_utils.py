@@ -144,18 +144,11 @@ def setup_notebook_environment(repo_url: Optional[str] = None) -> dict:
     if repo_url is None:
         repo_url = "https://github.com/olivialynn/ReadingTopography.git"
     
-    # Setup Colab if needed
-    if is_colab():
-        setup_colab_environment(repo_url)
-    
     # Get repository paths
+    # Note: Colab setup (repo cloning and path setup) should be done 
+    # BEFORE importing this module to avoid ImportError
     repo_root = get_repo_root()
     data_dir = repo_root / 'data'
-    
-    # Add src to path if not already there (for local environments)
-    src_path = str(repo_root / 'src')
-    if src_path not in sys.path:
-        sys.path.insert(0, src_path)
     
     environment = {
         'is_colab': is_colab(),
