@@ -18,6 +18,27 @@ Implements the first milestone of the Reading Topography project: CSV ingestion,
 
 ### How to Use
 
+#### Option 1: Run on Google Colab (Recommended for Quick Start)
+
+1. **Open the notebook in Colab**:
+   - Click this link: [Open MVP Notebook in Colab](https://colab.research.google.com/github/olivialynn/ReadingTopography/blob/main/notebooks/mvp_notebook.ipynb)
+   - Or go to [Google Colab](https://colab.research.google.com/) and use File → Open → GitHub → paste the notebook URL
+
+2. **Run all cells**:
+   - The notebook will automatically clone the repository and set up the environment
+   - It will use the sample data from the repository by default
+   - No manual path configuration needed!
+
+3. **Optional - Use your own data**:
+   - Export your Goodreads library as CSV (from Goodreads → My Books → Import/Export)
+   - Upload it to Colab using the file browser on the left
+   - Update the CSV path in cell 2:
+     ```python
+     CSV_PATH = '/content/your_goodreads_export.csv'
+     ```
+
+#### Option 2: Run Locally
+
 1. **Install dependencies**:
    ```bash
    pip install -r ../requirements.txt
@@ -33,10 +54,12 @@ Implements the first milestone of the Reading Topography project: CSV ingestion,
    jupyter notebook mvp_notebook.ipynb
    ```
 
-4. **Update the CSV path** (cell 2):
-   ```python
-   CSV_PATH = '../data/your_goodreads_export.csv'
-   ```
+4. **Optional - Use custom CSV**:
+   - The notebook uses `sample_goodreads.csv` by default
+   - To use your own data, update cell 2:
+     ```python
+     CSV_PATH = get_data_path('your_goodreads_export.csv')
+     ```
 
 ### Expected Output
 
@@ -51,8 +74,16 @@ The notebook will:
 ### Sample Output
 
 ```
+============================================================
+NOTEBOOK ENVIRONMENT
+============================================================
+Environment: Local (or Google Colab)
+Repository root: /path/to/ReadingTopography
+Data directory: /path/to/ReadingTopography/data
+============================================================
 ✓ Setup complete
-Loaded 10 books from ../data/sample_goodreads.csv
+
+Loaded 10 books from /path/to/data/sample_goodreads.csv
 Filtered to 'to-read' shelf: 9/10 books
 Removed 1 duplicate(s). 8 unique books remain.
 
