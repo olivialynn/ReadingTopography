@@ -98,7 +98,8 @@ def test_setup_colab_environment(mock_subprocess):
     
     try:
         # Mock Path.exists to return False (repo not yet cloned)
-        with patch('pathlib.Path.exists', return_value=False):
+        # Using a more specific patch to avoid affecting other Path objects
+        with patch('src.notebook_utils.Path.exists', return_value=False):
             setup_colab_environment()
             
             # Verify git clone was called
